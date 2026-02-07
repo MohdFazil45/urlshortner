@@ -6,3 +6,8 @@ export const UserSignup = z.object({
     email:z.string().email(),
     password:z.string().min(6)
 }) 
+
+export const UserSignin = z.object({
+    email:z.string().email(),
+    password:z.string().min(6)
+})

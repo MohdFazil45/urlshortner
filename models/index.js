@@ -1,2 +1,2 @@
-export {userTable} from "./usersSchema.js"
+export  {userTable} from "./usersSchema.js"
 
