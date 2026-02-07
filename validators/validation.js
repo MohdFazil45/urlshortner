@@ -11,3 +11,7 @@ export const UserSignin = z.object({
     email:z.string().email(),
     password:z.string().min(6)
 })
+
+export const UrlSchema = z.object({
+    url:z.url(),
+})

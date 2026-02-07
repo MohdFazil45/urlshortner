@@ -3,8 +3,7 @@ import "dotenv/config.js"
 import { db } from "../db/index.js"
 import jwt from "jsonwebtoken"
 import { userTable } from "../models/index.js"
-
-import { UserSignin, UserSignup } from "../validators/users.validation.js"
+import { UserSignin, UserSignup } from "../validators/validation.js"
 import bcrypt from "bcrypt"
 
 
