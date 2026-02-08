@@ -1,0 +1,1 @@
+ALTER TABLE "urls" ALTER COLUMN "targetUrl" SET DATA TYPE text;

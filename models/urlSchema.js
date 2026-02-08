@@ -1,11 +1,11 @@
-import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { userTable } from "./usersSchema.js";
 
 export const urlTable = pgTable("urls", {
     id: uuid().primaryKey().defaultRandom(),
-    userId: uuid().notNull().references(() => userTable.id),
+    userId: uuid().notNull().references(() => userTable.id).notNull(),
 
-    targetUrl: varchar({ length: 255 }).notNull(),
+    targetUrl: text().notNull(),
     shortCode: varchar({ length: 10 }).notNull(),
 
     createdAt: timestamp('created_at').defaultNow().notNull(),
