@@ -3,7 +3,7 @@ import { UrlSchema } from "../validators/validation.js"
 import { db } from "../db/index.js"
 import { urlTable } from "../models/index.js"
 import { nanoid } from "nanoid"
-import { eq } from "drizzle-orm"
+import { and, eq } from "drizzle-orm"
 
 /**
  * @param {import("express").Response} res
@@ -72,6 +72,23 @@ export const getAllUrls = async (req, res) => {
     });
 };
 
+
+/**
+ * @param {import("express").Response} res
+ * @param {import("express").Request} req 
+ * @param {import("express").NextFunction} next 
+ */
+
+export const deleteUrl = async (req, res) => {
+    const userId = req.userId
+    const id = req.params.id
+
+    await db.delete(urlTable).where(and(eq(urlTable.id, id), eq(urlTable.userId, userId)))
+
+    res.status(204).json({
+        delete: true
+    })
+}
 
 /**
  * @param {import("express").Response} res
